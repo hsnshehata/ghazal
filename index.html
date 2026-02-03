@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>غرام سلطان | روابط سريعة وتسالي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #fff1f2;
+      --bg2: #fef3c7;
+      --card: rgba(255,255,255,0.9);
+      --border: #fbcfe8;
+      --text: #1f172a;
+      --muted: #6b7280;
+      --accent: #f472b6;
+      --accent-2: #f59e0b;
+      --shadow: 0 20px 70px rgba(244, 114, 182, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Cairo", sans-serif;
+      background: radial-gradient(circle at 20% 10%, #ffe4e6 0, transparent 30%),
+                  radial-gradient(circle at 80% 0, #fef3c7 0, transparent 26%),
+                  radial-gradient(circle at 80% 80%, #f3e8ff 0, transparent 30%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      padding: 28px 16px 48px;
+    }
+
+    .shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #ffe4e6;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .card-header {
+      padding: 18px 18px 12px;
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .mini-logo img { width: 68px; height: 68px; object-fit: contain; }
+
+    .divider {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(180deg, transparent, #f9a8d4, transparent);
+    }
+
+    .title-block { text-align: start; }
+
+    .card-header h2 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .card-header p { margin: 6px 0 0; color: var(--muted); }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      padding: 0 18px 20px;
+    }
+
+    .link-btn {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      background: linear-gradient(135deg, #fff, #fff7fb);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px);
+      border-color: #f9a8d4;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+    }
+
+    .icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 6px 14px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .icon-mask {
+      width: 22px;
+      height: 22px;
+      background: currentColor;
+      mask: var(--icon) no-repeat center / contain;
+      -webkit-mask: var(--icon) no-repeat center / contain;
+      display: inline-block;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      margin: 4px 0 10px;
+      background: linear-gradient(135deg, #ec4899, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .muted { color: var(--muted); text-align: center; margin-bottom: 12px; }
+
+    .selectors {
+      display: grid;
+      gap: 18px;
+      padding: 0 18px 18px;
+    }
+
+    .selector-card {
+      border: 1px solid #ffe4e6;
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+    }
+
+    .selector-card h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .colors { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+    .shapes { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+    .colors, .shapes { display: grid; gap: 12px; }
+
+    .color-tile {
+      border: 1px solid #f3e8ff;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+      background: #fff;
+    }
+
+    .color-tile:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,0,0,0.06); }
+    .color-tile.active { border-color: #f472b6; box-shadow: 0 16px 40px rgba(244,114,182,0.18); }
+
+    .swatch {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin: 0 auto 8px;
+      border: 2px solid rgba(255,255,255,0.7);
+      box-shadow: inset -3px -3px 6px rgba(0,0,0,0.15), inset 3px 3px 6px rgba(255,255,255,0.5);
+    }
+
+    .shape-card {
+      border: 1px solid #f3e8ff;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      background: linear-gradient(135deg, #fff, #fff7fb);
+      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+    }
+
+    .shape-card:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,0,0,0.06); }
+    .shape-card.active { border-color: #f59e0b; box-shadow: 0 16px 40px rgba(245,158,11,0.18); }
+
+    .shape-svg { width: 100%; height: 80px; }
+
+    .actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 18px 16px; }
+
+    .btn {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.14s ease, box-shadow 0.14s ease;
+    }
+
+    .btn:active { transform: scale(0.99); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f472b6, #f59e0b);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(244, 114, 182, 0.25);
+    }
+
+    .btn-ghost {
+      background: #fff;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+
+    .result-card {
+      margin: 0 18px 18px;
+      border: 2px solid #fbcfe8;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff7fb, #fff);
+      padding: 16px;
+      box-shadow: 0 16px 45px rgba(0,0,0,0.06);
+    }
+
+    .result-card h4 { margin: 0 0 10px; text-align: center; font-size: 20px; }
+    .result-line { margin: 8px 0; font-size: 15px; }
+    .tag { font-weight: 800; color: #ec4899; }
+    .tag.amber { color: #d97706; }
+    .tag.pink { color: #db2777; }
+    .note { text-align: center; color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+    footer {
+      text-align: center;
+      padding: 14px 10px;
+      border-top: 1px solid #ffe4e6;
+      background: rgba(255,255,255,0.85);
+      border-radius: 16px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.04);
+    }
+
+    footer p { margin: 4px 0; }
+
+
+    @media (max-width: 640px) {
+      body { padding: 18px 10px 32px; }
+      .logo-wrap img { width: 120px; height: 120px; }
+      .links-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="card">
+      <div class="card-header">
+        <div class="header-row">
+          <div class="mini-logo">
+            <img src="https://gharam.onrender.com/logo.png" alt="شعار غرام سلطان صغير">
+          </div>
+          <div class="divider" aria-hidden="true"></div>
+          <div class="title-block">
+            <h2>روابط غرام سلطان السريعة</h2>
+            <p>تابعينا لتكتشفي عالم الجمال معنا ♥</p>
+          </div>
+        </div>
+      </div>
+      <div class="links-grid">
+        <a class="link-btn" href="https://www.gharamsoltan.com/" target="_blank" rel="noopener">
+          <span class="icon-wrap" style="color:#ec4899;">
+            <span class="icon-mask" style="--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@11/icons/googleearth.svg');"></span>
+          </span>
+          <span>الموقع الرسمي</span>
+        </a>
+        <a class="link-btn" href="https://www.facebook.com/gharam.ml" target="_blank" rel="noopener">
+          <span class="icon-wrap" style="color:#1877f2;">
+            <span class="icon-mask" style="--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@11/icons/facebook.svg');"></span>
+          </span>
+          <span>فيسبوك</span>
+        </a>
+        <a class="link-btn" href="https://www.instagram.com/gharamsoltan" target="_blank" rel="noopener">
+          <span class="icon-wrap" style="color:#e1306c;">
+            <span class="icon-mask" style="--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@11/icons/instagram.svg');"></span>
+          </span>
+          <span>انستجرام</span>
+        </a>
+        <a class="link-btn" href="https://www.tiktok.com/@gharamsoltan" target="_blank" rel="noopener">
+          <span class="icon-wrap" style="color:#000000;">
+            <span class="icon-mask" style="--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@11/icons/tiktok.svg');"></span>
+          </span>
+          <span>تيك توك</span>
+        </a>
+        <a class="link-btn" href="https://www.threads.net/@gharamsoltan" target="_blank" rel="noopener">
+          <span class="icon-wrap" style="color:#000000;">
+            <span class="icon-mask" style="--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@11/icons/threads.svg');"></span>
+          </span>
+          <span>تريدز</span>
+        </a>
+        <a class="link-btn" href="https://g.page/r/CeoPiyI-r3niEAE/review" target="_blank" rel="noopener">
+          <span class="icon-wrap" style="color:#fbbf24;">
+            <span class="icon-mask" style="--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@11/icons/googlemaps.svg');"></span>
+          </span>
+          <span>تقييماتنا</span>
+        </a>
+        <a class="link-btn" href="https://wa.me/gharam" target="_blank" rel="noopener">
+          <span class="icon-wrap" style="color:#25d366;">
+            <span class="icon-mask" style="--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@11/icons/whatsapp.svg');"></span>
+          </span>
+          <span>واتساب</span>
+        </a>
+      </div>
+    </div>
+
+    <section class="card">
+      <div class="card-header">
+        <h2 class="section-title">تسلية بانتظارك! 🎮</h2>
+        <p class="muted">اختاري لون وشكل الظافر المفضل وشوفي شخصيتك 💅</p>
+      </div>
+
+      <div class="selectors">
+        <div class="selector-card">
+          <h3>أولاً: اختاري لونك المفضل</h3>
+          <div class="colors" id="color-grid"></div>
+        </div>
+        <div class="selector-card">
+          <h3>ثانياً: اختاري شكل الظافر</h3>
+          <div class="shapes" id="shape-grid"></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-ghost" id="random-btn">اقتراح عشوائي</button>
+        <button class="btn btn-primary" id="show-btn">اكتشفي شخصيتك</button>
+        <button class="btn btn-ghost" id="reset-btn">إعادة الاختيار</button>
+        <button class="btn btn-primary" id="copy-btn">انسخي النتيجة</button>
+      </div>
+
+      <div class="result-card" id="result-card" hidden>
+        <h4>✨ شخصيتك حسب الاختيار ✨</h4>
+        <div class="result-line"><span class="tag">💪 قوتك:</span> <span id="strength"></span></div>
+        <div class="result-line"><span class="tag amber">💭 نقد بسيط:</span> <span id="weakness"></span></div>
+        <div class="result-line"><span class="tag pink">💎 ستايلك:</span> <span id="style"></span></div>
+        <p class="note">للترفيه فقط، مش تحليل شخصية حقيقي 😉</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>💖 سنتر غرام سلطان - حيث الجمال يبدأ من هنا 💖</p>
+      <p class="muted" style="margin:0;">Made with ♥ for beautiful moments</p>
+    </footer>
+  </div>
+
+  <script>
+    const colors = [
+      { name: "Classic Red", hex: "#dc2626" },
+      { name: "Soft Pink", hex: "#fbcfe8" },
+      { name: "Nude", hex: "#e5b89a" },
+      { name: "Deep Purple", hex: "#7c3aed" },
+      { name: "Emerald", hex: "#059669" },
+      { name: "Gold", hex: "#f59e0b" },
+      { name: "Coral", hex: "#ff6b6b" },
+      { name: "Lavender", hex: "#a78bfa" },
+      { name: "Sage Green", hex: "#86efac" },
+      { name: "Peach", hex: "#fb923c" },
+      { name: "Royal Blue", hex: "#3b82f6" },
+      { name: "Ruby", hex: "#e11d48" },
+    ];
+
+    const shapes = [
+      { name: "Square", svg: "M 40 10 L 60 10 L 60 70 L 40 70 Z" },
+      { name: "Round", svg: "M 40 10 Q 35 10 35 15 L 35 65 Q 35 70 40 70 L 60 70 Q 65 70 65 65 L 65 15 Q 65 10 60 10 Z" },
+      { name: "Oval", svg: "M 50 10 Q 70 10 70 40 Q 70 70 50 70 Q 30 70 30 40 Q 30 10 50 10 Z" },
+      { name: "Almond", svg: "M 50 10 Q 65 10 65 40 Q 65 65 50 70 Q 35 65 35 40 Q 35 10 50 10 Z" },
+      { name: "Coffin", svg: "M 40 10 L 60 10 L 65 15 L 65 60 L 60 70 L 40 70 L 35 60 L 35 15 Z" },
+      { name: "Stiletto", svg: "M 50 10 L 60 20 L 60 60 L 50 70 L 40 60 L 40 20 Z" },
+    ];
+
+    const personalityResults = {
+"Classic Red-Square": { strength: "قوية وواضحة جداً في رأيك دائماً، تُعبرين عن آرائك بجرأة وثقة تامة تجعل الجميع يحترمون موقفك" , weakness: "أحياناً القرارات سريعة جداً بدون تفكير كافٍ، قد تندمين لاحقاً على اندفاعك في بعض اللحظات" , style: "ستايل كلاسيكي حازم" },
+    "Classic Red-Round": { strength: "شجاعة ومثابرة بشكل مذهل، تواصلين المسيرة رغم الصعاب بإصرار يُلهم الآخرين حولك" , weakness: "تحتاجين هدوءاً أكثر قبل اتخاذ القرار، الاندفاع قد يؤدي إلى خطوات غير مدروسة تماماً" , style: "ناري بلمسة ناعمة" },
+    "Classic Red-Oval": { strength: "أناقة وذوق رفيع يميزان شخصيتك، تجمعين بين الجمال الداخلي والخارجي بطريقة ساحرة" , weakness: "تميلين للكمال كثيراً جداً مما يرهقك، قد تفقدين المتعة في الأمور البسيطة بسبب التفاصيل" , style: "ناعم وحاضر بقوة" },
+    "Classic Red-Almond": { strength: "جذابة وغامضة تجذبين الأنظار دون جهد، سحرك الطبيعي يجعل الآخرين يتساءلون عن أسرارك" , weakness: "تفتحين مشاعرك ببطء شديد، قد تفوتك فرص العلاقات الجادة بسبب الحذر الزائد" , style: "رومانسي ومغناطيسي" },
+    "Classic Red-Coffin": { strength: "عصرية ومبهرة في كل خطوة، تتركين انطباعاً قوياً يدوم طويلاً في أذهان الجميع" , weakness: "تهتمين برأي الناس كثيراً جداً مما يؤثر على راحتك، حاولي التركيز على نفسك أكثر" , style: "راقي وجريء" },
+    "Classic Red-Stiletto": { strength: "جريئة ومستعدة للمخاطرة بكل ثقة، تنجحين في التحديات الكبيرة بفضل شجاعتك اللا محدودة" , weakness: "أحياناً تقفزين قبل التفكير الجيد، الاندفاع قد يعرضك لمخاطر غير ضرورية في الحياة" , style: "خيالي ومذهل" },
+    "Soft Pink-Square": { strength: "لطيفة وتحسسين الناس بالأمان تماماً، وجودك يهدئ الأجواء ويبني جسور الثقة بسرعة" , weakness: "تخفين مشاعرك الداخلية كثيراً، قد يشعر الآخرون ببعد عاطفي رغم قربك الظاهري" , style: "ناعم مع لمسة رسمية" },
+    "Soft Pink-Round": { strength: "حنونة ومحبة بلا حدود، قلبك الكبير يجعلك الأم والصديقة المثالية لكل من حولك" , weakness: "ترضين الجميع أحياناً على حساب نفسك، قد تشعرين بالإرهاق من إرضاء الآخرين دائماً" , style: "رقيق وحالم" },
+    "Soft Pink-Oval": { strength: "ذكية ومرتبة في كل تفاصيل حياتك، تنظمين الأمور بكفاءة تجعلك ناجحة في كل مجال" , weakness: "تقلقين على التفاصيل الصغيرة كثيراً، القلق الزائد قد يمنعك من الاستمتاع باللحظة" , style: "أنـيق ومتزن" },
+    "Soft Pink-Almond": { strength: "عاطفية وحساسة تجاه الجميع، قلبك النقي يلمس الآخرين ويبني روابط عميقة ودائمة" , weakness: "تتأثرين بكلام الناس بسرعة كبيرة، حاولي بناء درع داخلي للحفاظ على توازنك" , style: "رومانسي ناعم" },
+    "Soft Pink-Coffin": { strength: "اجتماعية ومحبوبة في كل التجمعات، جاذبيتك الطبيعية تجعلك مركز الاهتمام دائماً" , weakness: "تنشغلين براحة الآخرين أكثر من نفسك، قد تنسين احتياجاتك الشخصية وسط هذا الاهتمام" , style: "ناعم مع لمسة عصرية" },
+    "Soft Pink-Stiletto": { strength: "طموحة ومثابرة تصلين للقمة مهما طال الطريق، إصرارك يحقق الأحلام الكبيرة" , weakness: "جدية أحياناً بشكل زائد، حاولي إضافة لمسة مرح لتحافظي على توازن حياتك" , style: "ناعم لكنه جريء" },
+    "Nude-Square": { strength: "بسيطة وأنيقة بطريقة طبيعية، أسلوبك يعكس الثقة بالنفس دون مبالغة أو تكلف" , weakness: "تحتاجين الخروج من منطقة الراحة أكثر، الروتين قد يحد من نموك الشخصي" , style: "كلاسيكي بسيط" },
+    "Nude-Round": { strength: "هادئة ومتوازنة في كل الظروف، توفرين السلام الداخلي لنفسك ولمن حولك بسهولة" , weakness: "تتجنبين الصراعات حتى لو كانت ضرورية، قد تتراكم المشكلات إذا لم تواجهيها" , style: "طبيعي وراقٍ" },
+    "Nude-Oval": { strength: "محترفة وناضجة في تعاملاتك، خبرتك تجعلك قدوة في العمل والحياة اليومية" , weakness: "معاييرك عالية جداً تجاه نفسك والآخرين، قد تكونين قاسية دون قصد في الحكم" , style: "رسمي وأنيق" },
+    "Nude-Almond": { strength: "صبورة وعملية في حل المشكلات، تنجحين حيث يفشل الآخرون بفضل هدوئك الاستراتيجي" , weakness: "تظهرين عاطفتك أقل مما تشعرين به، قد يُساء فهمك كشخص بارد أحياناً" , style: "عملي وجذاب" },
+    "Nude-Coffin": { strength: "واثقة ومباشرة في كلامك وأفعالك، تأثيرك قوي وواضح في كل بيئة تتواجدين فيها" , weakness: "صارمة أحياناً بشكل يُرهب الآخرين، حاولي تليين الجانب هذا قليلاً" , style: "قوي وواضح" },
+    "Nude-Stiletto": { strength: "مبدعة وفريدة في أفكارك، إبداعك يفتح أبواباً جديدة لا يفكر فيها أحد غيرك" , weakness: "تشعرين أحياناً بعدم الفهم من الآخرين، التميز قد يعزلك قليلاً عن الجماعة" , style: "غامض وفريد" },
+    "Deep Purple-Square": { strength: "غامضة وفخمة تجذبين الإعجاب بأناقتك الملكية، حضورك يفرض الاحترام تلقائياً" , weakness: "تبدين منغلقة على نفسك أحياناً، حاولي فتح أبوابك للتواصل الأعمق" , style: "ملكي وقوي" },
+    "Deep Purple-Round": { strength: "روحانية ومريحة للروح، طاقتك الإيجابية تشفي القلوب وتهدئ العقول المضطربة" , weakness: "تعيشين في عالمك الخاص كثيراً، قد تفوتك الواقعية في بعض القرارات اليومية" , style: "روحي وساحر" },
+    "Deep Purple-Oval": { strength: "خيالية ومبدعة بلا حدود، أفكارك الساحرة تحول الحياة إلى قصة فنية جميلة" , weakness: "اللحاق بأفكارك صعب جداً على الآخرين، قد يشعروا بالارتباك من سرعة خيالك" , style: "ساحر وخيالي" },
+    "Deep Purple-Almond": { strength: "عميقة ومحللة ببراعة، تفكيرك الثاقب يكشف الحقائق المخفية عن الجميع" , weakness: "تفكير زائد قبل كل قرار، قد يؤخرك التحليل الزائد عن الفرص الذهبية" , style: "غامض وجذاب" },
+    "Deep Purple-Coffin": { strength: "مؤثرة وقوية في كل كلمة، كلامك يترك أثراً عميقاً ويغير آراء الآخرين" , weakness: "تحتاجين للهدوء أحياناً لتجنب التوتر، القوة الزائدة قد تُرهق أعصابك" , style: "راقي ومؤثر" },
+    "Deep Purple-Stiletto": { strength: "خلاقة وفريدة في كل إبداع، مواهبك النادرة تجعلك نجماً لامعاً في سماء الفن" , weakness: "تشعرين باختلافك كثيراً عن الآخرين، قد تشعرين بالوحدة رغم تميزك" , style: "نادر ومذهل" },
+    "Emerald-Square": { strength: "عملية وعقلانية في كل خطوة، قراراتك المنطقية تؤدي إلى نجاحات مضمونة دائماً" , weakness: "تحتاجين للشعور العاطفي أكثر في علاقاتك، العقل وحده لا يكفي أحياناً" , style: "عملي وقوي" },
+    "Emerald-Round": { strength: "موثوقة وشفافة تماماً، صدقك يبني صداقات دائمة وثقة لا تتزعزع" , weakness: "تصدقين بسرعة كبيرة بالآخرين، حذاري من الخداع في بعض الحالات" , style: "طبيعي وجدير بالثقة" },
+    "Emerald-Oval": { strength: "متوازنة وحكيمة في الحكم، حكمتك تجعلك مستشارة مثالية لكل من يلجأ إليك" , weakness: "التوازن مرهق أحياناً للروح، خذي وقتاً للراحة من المسؤوليات" , style: "متزن وحكيم" },
+    "Emerald-Almond": { strength: "ناجحة وطموحة تصلين للأهداف العالية، طموحك يحقق الإنجازات الكبيرة" , weakness: "تسعين للكمال كثيراً مما يضغط عليك، الرضا بالجيد أفضل من الكمال" , style: "ناجح وجذاب" },
+    "Emerald-Coffin": { strength: "واثقة ومؤثرة في الجماهير، تأثيرك القوي يغير مجرى الأحداث بسهولة" , weakness: "اتركي مساحة أكبر لغيرك للتعبير، السيطرة الزائدة قد تبعد الآخرين" , style: "قوي ومؤثر" },
+    "Emerald-Stiletto": { strength: "متميزة وفريدة في مجالك، تميزك يجعلك رائدة لا تُضاهى في الإبداع" , weakness: "تشعرين أنك خارج السياق أحياناً، التميز يأتي مع شعور بالعزلة" , style: "نادر ومتميز" },
+    "Gold-Square": { strength: "راقية بمعايير عالية جداً، أناقتك الفخمة تجعلك ملكة في كل مناسبة" , weakness: "توقعاتك من الآخرين مرتفعة كثيراً، قد تشعرين بخيبة أمل متكررة" , style: "فخم وكلاسيكي" },
+    "Gold-Round": { strength: "دفء وحنان ينبع من قلبك، دفءك يشفي الجراح ويجمع الناس حولك" , weakness: "تحتاجين الاهتمام بنفسك أكثر من الآخرين، لا تنسي راحتك وسط عطائك" , style: "دافئ وحنون" },
+    "Gold-Oval": { strength: "أناقة وذوق رفيع في كل اختيار، ذوقك يُبهر الجميع ويحدد الموضة" , weakness: "تهتمين بالمظهر كثيراً جداً، الجوهر أهم من الشكل في النهاية" , style: "أنيق وفخم" },
+    "Gold-Almond": { strength: "جذابة ومغناطيسية بقوة، جاذبيتك الطبيعية تسحر القلوب دون كلام" , weakness: "تعتمدين على الجاذبية كثيراً في علاقاتك، طوري الجوانب الأخرى أيضاً" , style: "مغناطيسي وجذاب" },
+    "Gold-Coffin": { strength: "مؤثرة ولامعة في كل حضور، لمعانك يضيء الطريق للآخرين خلفك" , weakness: "المزيد من التواضع أحياناً يليق بك، التواضع يزيد من جاذبيتك" , style: "فخم وجريء" },
+    "Gold-Stiletto": { strength: "فريدة بلا مثيل في العالم، إبداعك الفريد يخلق تاريخاً خاصاً بك" , weakness: "صعب إرضاء الذوق دائماً لديك، قد تتعبي من البحث عن الكمال" , style: "خيالي وفريد" },
+    "Coral-Square": { strength: "مرحة وحيوية تنشرين البهجة أينما ذهبتِ، طاقتك المشرقة تشحن الجميع" , weakness: "تحتاجين للهدوء قبل القرار المهم، المرح الزائد قد يُشتت التركيز" , style: "مشرق وحيوي" },
+    "Coral-Round": { strength: "محبوبة ودافئة كالشمس، حنانك يجعل الجميع يشعر بالراحة بجانبك" , weakness: "تركزين على رأي الناس كثيراً، اعتمدي على حدسك الداخلي أكثر" , style: "دافئ ومحبوب" },
+    "Coral-Oval": { strength: "إيجابية ومتفائلة في كل الظروف، تفاؤلك يحول الصعاب إلى فرص ذهبية" , weakness: "الواقعية مطلوبة أحياناً لتجنب الخيبات، التوازن بين الاثنين مثالي" , style: "إيجابي ومتفائل" },
+    "Coral-Almond": { strength: "اجتماعية وطبيعية في التواصل، صداقاتك عميقة وصادقة كالطبيعة نفسها" , weakness: "تعتمدين على تفاعل الناس كثيراً، كن مستقلة قليلاً في سعادتك" , style: "اجتماعي وطبيعي" },
+    "Coral-Coffin": { strength: "عصرية ومميزة في أسلوبك، تميزك العصري يجعلك رمزاً للحداثة" , weakness: "احتياج للمزيد من الواقعية في الأحلام، الخيال جميل لكن الواقع أساسي" , style: "عصري وفريد" },
+    "Coral-Stiletto": { strength: "جريئة ومغامرة تبحثين عن الإثارة، مغامراتك تخلق قصصاً مثيرة لا تُنسى" , weakness: "مخاطر بلا حساب أحياناً قد تؤذيك، خططي جيداً قبل القفز" , style: "جريء ومغامر" },
+    "Lavender-Square": { strength: "هادئة ومتأملة بعمق، تأملاتك تكشف حكمة داخلية عميقة وملهمة" , weakness: "تبدين منغلقة على العالم الخارجي، افتحي أكثر لتشاركي جمال روحك" , style: "هادئ وساحر" },
+    "Lavender-Round": { strength: "رقيقة ومهذبة في كل تعامل، أدبك يجعلك محبوبة في كل المجتمعات" , weakness: "تحتاجين إظهار القوة الداخلية أكثر، الرقة جميلة لكن القوة ضرورية" , style: "رقيق ومهذب" },
+    "Lavender-Oval": { strength: "شاعرية وعميقة في مشاعرك، كلماتك الشعرية تلمس القلوب بلطف ساحر" , weakness: "تعيشين في الأفكار كثيراً جداً، عودي للواقع بين الحين والآخر" , style: "شاعري وعميق" },
+    "Lavender-Almond": { strength: "روحانية ومحبة تجاه الكون، روحك النقية تجذب الطاقات الإيجابية" , weakness: "حساسة جداً للطاقات السلبية، بني درعاً روحياً لحماية نفسك" , style: "روحي ومحبوب" },
+    "Lavender-Coffin": { strength: "أصيلة وفريدة في جوهرك، أصالتك تجعلك مختلفة ومميزة حقاً" , weakness: "خرجي من عالمك أكثر للتفاعل، العزلة قد تحد من نموك الاجتماعي" , style: "أصيل وفريد" },
+    "Lavender-Stiletto": { strength: "فنانة وخلاقة بلا حدود، إبداعك الفني يخلق عوالم جديدة مذهلة" , weakness: "إحساس بعدم الفهم من الآخرين، الإبداع يأتي مع تحديات الفهم" , style: "فني وإبداعي" },
+    "Sage Green-Square": { strength: "مستقرة وثابتة كالجبل، استقرارك يمنح الأمان لكل من يعتمد عليك" , weakness: "تصدقين بسهولة بالوعود، كن أكثر حذراً في الثقة بالناس" , style: "مستقر وموثوق" },
+    "Sage Green-Round": { strength: "طبيعية وصادقة في كل شيء، صدقك الطبيعي يبني جسور الثقة الأبدية" , weakness: "تسايرين كثيراً على حساب رأيك، عبري عن نفسك بجرأة أكبر" , style: "صادق وبسيط" },
+    "Sage Green-Oval": { strength: "ناضجة وحكيمة في النصائح، حكمتك الناضجة تحل أعقد المشكلات بسهولة" , weakness: "التوازن مرهق للطاقة الداخلية، خذي فترات راحة منتظمة" , style: "متزن وحكيم" },
+    "Sage Green-Almond": { strength: "متزنة وعملية في الحياة، توازنك يجعلك ناجحة في كل المجالات العملية" , weakness: "تظهرين عاطفتك أقل مما هي عليه، أظهري الجانب العاطفي أكثر" , style: "متزن وعملي" },
+    "Sage Green-Coffin": { strength: "واثقة ومؤثرة بقوة، ثقتك تؤثر إيجاباً على كل من يتعامل معك" , weakness: "امنحي مساحة للآخرين للتنفس، الثقة الزائدة قد تُشعرهم بالضغط" , style: "قوي ومؤثر" },
+    "Sage Green-Stiletto": { strength: "متميزة وفريدة في شخصيتك، تميزك يجعلك قدوة في الإبداع والتميز" , weakness: "تشعرين بالاختلاف كثيراً عن الآخرين، احتضني تميزك كقوة" , style: "نادر ومتميز" },
+    "Peach-Square": { strength: "دافئة ومحبوبة كالفاكهة الناضجة، دفءك يجعل الجميع يشعر بالسعادة" , weakness: "احمي نفسك أكثر من الإفراط في العطاء، الحدود تحافظ على طاقتك" , style: "دافئ ومحبوب" },
+    "Peach-Round": { strength: "حنونة ورقيقة في التعامل، رقة قلبك تجعلك الأقرب للجميع دائماً" , weakness: "خجولة أحياناً تمنعك من الظهور، الجرأة ستفتح أبواباً جديدة" , style: "حنون ورقيق" },
+    "Peach-Oval": { strength: "ذكية وملاحِظة للتفاصيل الدقيقة، ذكاؤك اللامع يحل الألغاز بسرعة" , weakness: "تحللين بزيادة عن الحاجة، الاسترخاء يريح العقل أحياناً" , style: "ذكي ولامع" },
+    "Peach-Almond": { strength: "عاطفية وفهمة للآخرين بعمق، فهمك يبني علاقات قوية ودائمة" , weakness: "تحملين هموم الناس كثيراً، ضعي حدوداً لحماية قلبك الطيب" , style: "عاطفي ومتفهم" },
+    "Peach-Coffin": { strength: "عصرية وحاضرة في كل موضة، حضورك العصري يجعلك نجمة اللحظة" , weakness: "المزيد من التواضع يزيد من تألقك، التواضع يعزز الجاذبية" , style: "عصري وحاضر" },
+    "Peach-Stiletto": { strength: "طموحة ومثابرة تصلين للنجوم، مثابرتك تحقق الأحلام الكبيرة" , weakness: "راجعي أحلامك قبل التنفيذ جيداً، التخطيط يضمن النجاح" , style: "طموح ومثابر" },
+    "Royal Blue-Square": { strength: "قيادية وواثقة بقوة ملكية، قيادتك تجعل الفريق ينجح معاً" , weakness: "اسمحي لغيرك بالقيادة أحياناً، التعاون يقوي الجميع" , style: "قيادي وواثق" },
+    "Royal Blue-Round": { strength: "صادقة ومخلصة للنهاية، ولاؤك يبني صداقات لا تتزعزع أبداً" , weakness: "الصراحة مطلوبة بوضوح أكبر، تجنبي التلميحات الغامضة" , style: "صادق ومخلص" },
+    "Royal Blue-Oval": { strength: "ناجحة ومتفوقة في كل تحدٍ، تفوقك يلهم الآخرين للارتقاء" , weakness: "النجاح ليس كل شيء في الحياة، التوازن مع السعادة أهم" , style: "ناجح ومتفوق" },
+    "Royal Blue-Almond": { strength: "مثالية ومتميزة في كل جانب، مثاليتك تجعلك نموذجاً يُحتذى به" , weakness: "كوني أكثر تقبلاً للنقص، الكمال ليس دائماً ضرورياً" , style: "مثالي ومتميز" },
+    "Royal Blue-Coffin": { strength: "واثقة ومحترمة في كل مكان، احترامك الذاتي يفرض الاحترام من الجميع" , weakness: "الهدوء مفيد أحياناً للتوازن، الثقة لا تحتاج صخباً دائماً" , style: "محترم وقوي" },
+    "Royal Blue-Stiletto": { strength: "ملهمة وعنيدة في أهدافك، إلهامك يدفع الآخرين للعظمة" , weakness: "تحبين الجديد بسرعة كبيرة، هدئي الاندفاع قليلاً" , style: "ملهم ومستقل" },
+    "Ruby-Square": { strength: "شغوفة ومتحمسة بحماس نارِي، شغفك يشعل الشرارة في كل مشروع" , weakness: "تركزين على رأي الناس أكثر من اللازم، ثقي بقراراتك الداخلية" , style: "شغوف ومتحمس" },
+    "Ruby-Round": { strength: "رومانسية ومثالية في الحب، رومانسيتك تخلق قصص حب أسطورية" , weakness: "اخرجي من الراحة لتجربي الجديد، الروتين يُطفئ الرومانسية" , style: "رومانسي ومثالي" },
+    "Ruby-Oval": { strength: "أناقة وفخامة ملكية، أناقتك الفخمة تُبهر في كل مناسبة" , weakness: "تركزين على المظهر كثيراً، الداخل أجمل من الخارج دائماً" , style: "أنيق وفخم" },
+    "Ruby-Almond": { strength: "جذابة وساحرة كالجوهرة، سحرك يسحر القلوب والعقول معاً" , weakness: "تعتمدين على الجاذبية كثيراً، طوري الثقة الداخلية أيضاً" , style: "مغناطيسي وجذاب" },
+    "Ruby-Coffin": { strength: "قوية وعتيدة في المواقف، قوتك العتيدة تحمي وتُلهم الآخرين" , weakness: "واقعية أكثر مطلوبة في الأحلام، التوازن يضمن الاستمرارية" , style: "قوي وعتيد" },
+    "Ruby-Stiletto": { strength: "فريدة ومذهلة في كل شيء، فرادتك المذهلة تخلق تاريخاً خاصاً" , weakness: "صعب إرضاء ذوقك الرفيع دائماً، الرضا يجلب السعادة" , style: "فريد ومذهل" }
+    };
+
+    const colorGrid = document.getElementById("color-grid");
+    const shapeGrid = document.getElementById("shape-grid");
+    const resultCard = document.getElementById("result-card");
+    const strengthEl = document.getElementById("strength");
+    const weaknessEl = document.getElementById("weakness");
+    const styleEl = document.getElementById("style");
+    const randomBtn = document.getElementById("random-btn");
+    const showBtn = document.getElementById("show-btn");
+    const resetBtn = document.getElementById("reset-btn");
+    const copyBtn = document.getElementById("copy-btn");
+
+    let selectedColor = null;
+    let selectedShape = null;
+
+    function renderColors() {
+      colorGrid.innerHTML = "";
+      colors.forEach((c) => {
+        const btn = document.createElement("button");
+        btn.className = "color-tile" + (selectedColor === c.name ? " active" : "");
+        btn.innerHTML = `
+          <div class="swatch" style="background:${c.hex}"></div>
+          <div>${c.name}</div>
+        `;
+        btn.onclick = () => { selectedColor = c.name; renderColors(); };
+        colorGrid.appendChild(btn);
+      });
+    }
+
+    function renderShapes() {
+      shapeGrid.innerHTML = "";
+      shapes.forEach((s) => {
+        const btn = document.createElement("button");
+        btn.className = "shape-card" + (selectedShape === s.name ? " active" : "");
+        btn.innerHTML = `
+          <div class="shape-svg">
+            <svg viewBox="0 0 100 80" width="100%" height="80">
+              <defs>
+                <linearGradient id="grad-${s.name}" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fbcfe8" />
+                  <stop offset="100%" stop-color="#f472b6" />
+                </linearGradient>
+              </defs>
+              <path d="${s.svg}" fill="url(#grad-${s.name})" stroke="#f472b6" stroke-width="2" />
+            </svg>
+          </div>
+          <div style="font-weight:700">${s.name}</div>
+        `;
+        btn.onclick = () => { selectedShape = s.name; renderShapes(); };
+        shapeGrid.appendChild(btn);
+      });
+    }
+
+    function getResult() {
+      if (!selectedColor || !selectedShape) return null;
+      const key = `${selectedColor}-${selectedShape}`;
+      return personalityResults[key] || {
+        strength: "لديك شخصية فريدة لا تُقارن",
+        weakness: "أحياناً صعب إرضاء الجميع",
+        style: "ستايل خاص فريد",
+      };
+    }
+
+    function showResult() {
+      const result = getResult();
+      if (!result) return;
+      strengthEl.textContent = result.strength;
+      weaknessEl.textContent = result.weakness;
+      styleEl.textContent = result.style;
+      resultCard.hidden = false;
+    }
+
+    function resetAll() {
+      selectedColor = null;
+      selectedShape = null;
+      renderColors();
+      renderShapes();
+      resultCard.hidden = true;
+    }
+
+    function randomPick() {
+      selectedColor = colors[Math.floor(Math.random() * colors.length)].name;
+      selectedShape = shapes[Math.floor(Math.random() * shapes.length)].name;
+      renderColors();
+      renderShapes();
+      showResult();
+    }
+
+    copyBtn.onclick = () => {
+      const result = getResult();
+      if (!result) return;
+      const text = `قوتك: ${result.strength} | نقد بسيط: ${result.weakness} | ستايلك: ${result.style}`;
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.textContent = "تم النسخ";
+        setTimeout(() => copyBtn.textContent = "انسخي النتيجة", 1500);
+      });
+    };
+
+    showBtn.onclick = showResult;
+    randomBtn.onclick = randomPick;
+    resetBtn.onclick = resetAll;
+
+    renderColors();
+    renderShapes();
+  </script>
+</body>
+</html>

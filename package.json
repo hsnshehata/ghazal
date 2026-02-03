@@ -1,0 +1,13 @@
+{
+  "name": "gharam-qr-links",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static QR links and nail game served via Express for Render Web Service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
